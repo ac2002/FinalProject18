@@ -2,8 +2,8 @@ import random
 import sys
 import time
 class item:
-    '''Make a weapon class, duh'''
-    def __init__(self, name, cost, defbuf, atkbuf, accbuf, dodgebuf, hppotionbuf)
+    '''Make a weapon class'''
+    def __init__(self, name, cost, defbuf, atkbuf, accbuf, dodgebuf, hppotionbuf):
         self.name = name
         self.cost = cost
         self.defbuf = defbuf
@@ -21,16 +21,24 @@ class character:
         self.accuracy = accuracy
         self.dodge = dodge
         self.healthpotions = healthpotions
+speedforce = item("Speed Force Potion", 40, 0, 0, 5, 15, 0)
+helpotion = item("Health Potion", 15, 0, 0, 0, 0, 1)
+bea = item("Bea", 25, 4, 12, 22, 0, 0)
+arthur = item("Arthur", 35, 6, 15, 30, 1, 0)
+batarang = item("Batarang", 10, 1, 3, 7, 0, 0)
+berserker = item("Berserker Scroll", 95, 0, 50, 0, 0, 0)
+club = item("Club", 8, 2, 1, 0, 0, 0)
+dragonbreath = item("Dragon's Breath", 175, 25, 100, 40, 0, 0)
 batman = character("Batman", 285, 28, 57, 50, 33, 3, 0, "Batmobile", 1)
-wade = character("Wade", 275, 37, 64, 77, 1, 5, 0, "Iron Giant", 1)
+wade = character("Deadpool", 275, 37, 64, 77, 37, 1, 0, "Iron Giant", 1)
 bilbo = character("Bilbo", 250, 22, 48, 80, 38, 1, 0, "Gandalf", 1)
-sbot = character("Stormtrooper", 55, 7, 40, 15, 50, 0, 0, "", 0)
+sbot = character("Stormtrooper", 55, 7, 40, 15, 20, 0, 0, "", 0)
 mbot = character("Sixer", 75, 12, 45, 70, 25, 0, 0, "", 0)
-hbot = character("Dementor", 105, 40, 52, 80, 30, 0, "", 0)
+hbot = character("Dementor", 105, 40, 52, 80, 30, 0, 0, "", 0)
 sbot1 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
-sbot2 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, "", 0)
+sbot2 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
 sbot3 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
-sbot4 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, "", 0)
+sbot4 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
 mbot1 = character("Sixer", 75, 12, 45, 70, 25, 0, 0, "", 0)
 mbot2 = character("Sixer", 75, 12, 45, 70, 25, 0, 0, "", 0)
 mbot3 = character("Sixer", 75, 12, 45, 70, 25, 0, 0, "", 0)
@@ -39,7 +47,7 @@ hbot1 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
 hbot2 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
 hbot3 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
 hbot4 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
-def shop():
+
 
 def healthpotion(user1):
     if user.healthpotions > 0:
@@ -55,6 +63,7 @@ time.sleep(3)
 print("The rules of this game are simple. You choose a character and adventure through the dungeon. There are a total of 5 rooms, each with a varying level of difficulty and a different enemy to face.")
 print("Should you die within the rooms, there's no going back! If you somehow make it through the rooms, you will face a final boss. They all have special abilities and are very strong, so get ready to have some funnn!")
 print("You will earn gold and can enter the shop after every fight. You can buy things like weapons, potions, and other similar items that will help you win(or maybe not). Guess you'll have to find out!")
+print("Oh lmao I forgot one last thing these enemies are reincarnations of their movie selves. We all know that zombies don't die fast. As such, they will attack you even after you kill them. You just have to dodge it, I guess.")
 user = input("Choose a character: Wade, Bilbo, or Batman: ")
 if user == "Wade":
     user = wade
@@ -66,21 +75,22 @@ else:
     print("That is an invalid character. Try again!")
 def fighting(self, other):
 
-    while user.hp > 0 and other.hp > 0:
+    while self.hp > 0 and other.hp > 0:
 
         fight(self, other)
-        time.sleep(2)
+        time.sleep(0)
         showstat(self, other)
-        time.sleep(2)
+        time.sleep(0)
         fight2(other, self)
-        time.sleep(2)
+        time.sleep(0)
         showstat(self, other)
-        time.sleep(2)
-        if user.hp < 0:
+        time.sleep(0)
+        if self.hp < 0:
             print("Oh no, you died! Sucks to suck!")
             quit()
         if other.hp < 0:
             print("Looks like you won! Cool.")
+            print(f"You have {self.healthpotions} healthpotions.")
             break
 red = random.randint(1, 100)
 blue = random.randint(1, 100)
@@ -100,7 +110,6 @@ def fight(self, other):
     elif red < self.accuracy and blue > other.dodge:
         print(f"{self.name} attacks {other.name}! The attack is super effective! It deals {yellow} damage! What a hit!")
         other.hp = other.hp - yellow
-        ("/n")
     else:
         print(f"{other.name} dodged the attack! Better luck next time, {self.name}!")
 def fight2(other, self):

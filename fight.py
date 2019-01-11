@@ -55,4 +55,4 @@ def fight2(other, self):
 
 showstat(user)
 fight(user, purple)
-fight2(hbot, purple)
+fight2(purple, user)

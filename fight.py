@@ -92,7 +92,7 @@ def shop(self):
     elif itembought == "berserker scroll" and self.gold >= berserker.cost:
         print("You bought a Berserker Scroll! Cool!")
         addstat(user, berserker)
-        itmes.remove(berserker)
+        items.remove(berserker)
     elif itembought == "club" and self.gold >= club.cost:
         print("You bought a club! Cool!")
         addstat(user, club)
@@ -108,6 +108,8 @@ def shop(self):
     elif itembought == "I just wanna win":
         print("Your wish is granted. You win! Congratulations!")
         sys.exit()
+    elif itembought == "No"
+        print("Okay! Good luck!")
     else:
         print("That is invalid, so sucks to be you. I hope you die next round! Type better next time! :)")
 

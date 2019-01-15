@@ -3,12 +3,11 @@ import sys
 import time
 class item:
     '''Make a weapon class'''
-    def __init__(self, name, cost, defbuf, atkbuf, accbuf, dodgebuf, hppotionbuf):
+    def __init__(self, name, cost, atkbuf, accbuf, dodgebuf, hppotionbuf):
         self.name = name
         self.cost = cost
-        self.defbuf = defbuf
         self.atkbuf = atkbuf
-        self.accbut = accbuf
+        self.accbuf = accbuf
         self.dodgebuf = dodgebuf
         self.hppotionbuf = hppotionbuf
 class character:
@@ -21,20 +20,23 @@ class character:
         self.accuracy = accuracy
         self.dodge = dodge
         self.healthpotions = healthpotions
-speedforce = item("Speed Force Potion", 40, 0, 0, 5, 15, 0)
-helpotion = item("Health Potion", 15, 0, 0, 0, 0, 1)
-bea = item("Bea", 25, 4, 12, 22, 0, 0)
-arthur = item("Arthur", 35, 6, 15, 30, 1, 0)
-batarang = item("Batarang", 10, 1, 3, 7, 0, 0)
-berserker = item("Berserker Scroll", 95, 0, 50, 0, 0, 0)
-club = item("Club", 8, 2, 1, 0, 0, 0)
-dragonbreath = item("Dragon's Breath", 175, 25, 100, 40, 0, 0)
-batman = character("Batman", 285, 28, 57, 50, 33, 3, 0, "Batmobile", 1)
-wade = character("Deadpool", 275, 37, 64, 77, 37, 1, 0, "Iron Giant", 1)
-bilbo = character("Bilbo", 250, 22, 48, 80, 38, 1, 0, "Gandalf", 1)
+        self.gold = gold
+
+speedforce = item("Speed Force Potion", 40, 0, 5, 15, 0)
+helpotion = item("Health Potion", 15, 0, 0, 0, 1)
+bea = item("Bea", 25, 4, 22, 0, 0)
+arthur = item("Arthur", 35, 15, 30, 1, 0)
+batarang = item("Batarang", 10, 3, 7, 0, 0)
+berserker = item("Berserker Scroll", 95, 50, 0, 0, 0)
+club = item("Club", 8, 1, 0, 0, 0)
+dragonbreath = item("Dragon's Breath", 175, 100, 40, 0, 0)
+oompaloompa = item("Oompa Loompa", 250, 150, 55, 22, 1)
+batman = character("Batman", 285, 15, 57, 50, 33, 3, 500, "Batmobile", 1)
+wade = character("Deadpool", 275, 12, 64, 77, 37, 1, 0, "Iron Giant", 1)
+bilbo = character("Bilbo", 250, 10, 48, 80, 38, 1, 0, "Gandalf", 1)
 sbot = character("Stormtrooper", 55, 7, 40, 15, 20, 0, 0, "", 0)
 mbot = character("Sixer", 75, 12, 45, 70, 25, 0, 0, "", 0)
-hbot = character("Dementor", 105, 40, 52, 80, 30, 0, 0, "", 0)
+hbot = character("Dementor", 105, 10, 32, 80, 15, 0, 0, "", 0)
 sbot1 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
 sbot2 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
 sbot3 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0, "", 0)
@@ -47,6 +49,68 @@ hbot1 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
 hbot2 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
 hbot3 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
 hbot4 = character("Dementor", 105, 40, 47, 80, 30, 0, 0, "", 0)
+items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa]
+def addstat(self, item):
+    self.gold = self.gold - item.cost
+    print(f"You now have {self.gold} gold")
+    self.attack = self.attack + item.atkbuf
+    print(f"You gained {item.atkbuf} attack. You now have {self.attack} attack")
+    self.accuracy = self.accuracy + item.accbuf
+    print(f"You gained {item.accbuf} accuracy. You now have {self.accuracy} accuracy")
+    self.dodge = self.dodge + item.dodgebuf
+    print(f"You gained {item.dodgebuf} elusiveness. You now have {self.dodge} elusiveness")
+    self.healthpotions = self.healthpotions + item.hppotionbuf
+    print(f"You gained {item.hppotionbuf} healthpotions. You now have {self.healthpotions} healthpotions.")
+def shop(self):
+    print("You now visit the shop!")
+    print("Be careful though! You can only buy one item per round, and if you mistype by accident, you're screwed! Type the item exactly as it appears, or the shopkeeper will throw you out!")
+
+    time.sleep(1)
+    print(f"You have {self.gold} gold.")
+    print("You can buy: ")
+    for x in items:
+        print(f"{x.name} which costs {x.cost}")
+    itembought = input("So, would you like to buy anything?").lower()
+    if itembought == "speed force potion" and self.gold >= speedforce.cost:
+        print("You bought the Speed Force Potion! Congrats!")
+        addstat(user, speedforce)
+    elif itembought == "helpotion" and self.gold >= helpotion.cost:
+        print("You bought a health potion! Nice!")
+        addstat(user, helpotion)
+    elif itembought == "bea" and self.gold >= bea.cost:
+        print("You bought Bea the sword! Cool!")
+        addstat(user, bea)
+        items.remove(bea)
+    elif itembought == "arthur" and self.gold >= arthur.cost:
+        print("You bought Arthur the other sword! Awesome!")
+        addstat(user, arthur)
+        items.remove(arthur)
+    elif itembought == "batarang" and self.gold >= batarang.cost:
+        print("You bought a Batarang! Dope!")
+        addstat(user, batarang)
+        items.remove(batarang)
+    elif itembought == "berserker scroll" and self.gold >= berserker.cost:
+        print("You bought a Berserker Scroll! Cool!")
+        addstat(user, berserker)
+        itmes.remove(berserker)
+    elif itembought == "club" and self.gold >= club.cost:
+        print("You bought a club! Cool!")
+        addstat(user, club)
+        items.remove(club)
+    elif itembought == "dragon's breath" and self.gold >= dragonbreath.cost:
+        print("You bought the Dragon's Breath! Cool!")
+        addstat(user, dragonbreath)
+        items.remove(dragonbreath)
+    elif itembought == "oompa loompa" and self.gold >= oompaloompa.cost:
+        print("You bought a pet Oompa Loompa! Cool!")
+        addstat(user, oompaloompa)
+        items.remobe(oompaloompa)
+    elif itembought == "I just wanna win":
+        print("Your wish is granted. You win! Congratulations!")
+        sys.exit()
+    else:
+        print("That is invalid, so sucks to be you. I hope you die next round! Type better next time! :)")
+
 
 
 def healthpotion(user1):
@@ -64,7 +128,7 @@ print("The rules of this game are simple. You choose a character and adventure t
 print("Should you die within the rooms, there's no going back! If you somehow make it through the rooms, you will face a final boss. They all have special abilities and are very strong, so get ready to have some funnn!")
 print("You will earn gold and can enter the shop after every fight. You can buy things like weapons, potions, and other similar items that will help you win(or maybe not). Guess you'll have to find out!")
 print("Oh lmao I forgot one last thing these enemies are reincarnations of their movie selves. We all know that zombies don't die fast. As such, they will attack you even after you kill them. You just have to dodge it, I guess.")
-user = input("Choose a character: Wade, Bilbo, or Batman: ")
+user = input("Choose a character: Wade, Bilbo, or Batman: ").title()
 if user == "Wade":
     user = wade
 elif user == "Bilbo":
@@ -73,6 +137,7 @@ elif user == "Batman":
     user = batman
 else:
     print("That is an invalid character. Try again!")
+
 def fighting(self, other):
 
     while self.hp > 0 and other.hp > 0:
@@ -123,7 +188,7 @@ def fight2(other, self):
     else:
         print(f"{self.name} dodged the attack! Better luck next time, {other.name}!")
 def chooseroom(self, other):
-    room = input("Choose a room, 1, 2, 3")
+    room = input("Choose a room, 1, 2, 3: ")
     if room == "1" or room == "2" or room == "3":
         print(f'Uh oh! Like we have a fight breaking out! The fighters are: {self.name} and {other.name}!')
         showstat(self, other)
@@ -142,15 +207,30 @@ green.remove(bot4)
 bot5 = random.choice(green)
 green.remove(bot5)
 chooseroom(user, bot1)
+print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 40
 healthpotion(user)
+shop(user)
 chooseroom(user, bot2)
+print("You got 60 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 60
 healthpotion(user)
+shop(user)
 chooseroom(user, bot3)
+print("You got 75 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 75
 healthpotion(user)
+shop(user)
 chooseroom(user, bot4)
+print("You got 90 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 90
 healthpotion(user)
+shop(user)
 chooseroom(user, bot5)
+print("You got 125 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 125
 healthpotion(user)
+shop(user)
 #showstat(user, bot1)
 #fight(user, bot1)
 #fight2(user, bot1)

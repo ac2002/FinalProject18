@@ -31,10 +31,13 @@ class boss:
         self.accuracy = accuracy
         self.dodge = dodge
         self.specialskill = specialskill
-dracula = boss("Dracula", 425, 9, 30, 70, 25, "Drain")
-geicolizard = boss("The Geico Lizard", 120, 6, 18, 75, 90, "Save 15% or more on car insurance")
-magneto = boss("Magneto", 200, 2, 4, 50, 25, "Magnetic Field")
+dracula = boss("Dracula", 730, 9, 30, 70, 25, "Drain")
+geicolizard = boss("The Geico Lizard", 520, 6, 18, 100, 90, "Save 15% or more on car insurance")
+magneto = boss("Magneto", 200, 1, 3, 60, 25, "Magnetic Field")
 speedforce = item("Speed Force Potion", 40, 0, 5, 15, 0)
+snakehead = item("Snake's Head", 25, 10, 2, 5, 0)
+cataclyst = item("The Cataclyst", 100, 50, 10, 0, 0)
+ratstail = item("Rat's Tail", 75, 0, 0, 25, 0)
 helpotion = item("Health Potion", 15, 0, 0, 0, 1)
 bea = item("Bea", 25, 10, 22, 0, 0)
 arthur = item("Arthur", 35, 15, 30, 1, 0)
@@ -43,25 +46,38 @@ berserker = item("Berserker Scroll", 95, 50, 0, 0, 0)
 club = item("Club", 8, 3, 0, 0, 0)
 dragonbreath = item("Dragon's Breath", 175, 100, 40, 0, 0)
 oompaloompa = item("Oompa Loompa", 250, 150, 55, 0, 1)
-batman = character("Batman", 285, 15, 57, 50, 33, 3, 0)
-wade = character("Deadpool", 275, 12, 64, 77, 37, 1, 0)
-bilbo = character("Bilbo", 250, 10, 48, 80, 38, 1, 0)
-sbot = character("Stormtrooper", 55, 7, 40, 15, 20, 0, 0)
-mbot = character("Sixer", 75, 12, 45, 70, 25, 0, 0)
-hbot = character("Dementor", 105, 10, 32, 80, 15, 0, 0)
-sbot1 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0)
-sbot2 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0)
-sbot3 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0)
-sbot4 = character("Stormtrooper", 55, 7, 31, 15, 50, 0, 0)
-mbot1 = character("Sixer", 75, 12, 45, 70, 25, 0, 0)
-mbot2 = character("Sixer", 75, 12, 45, 70, 25, 0, 0)
-mbot3 = character("Sixer", 75, 12, 45, 70, 25, 0, 0)
-mbot4 = character("Sixer", 75, 12, 45, 70, 25, 0, 0)
-hbot1 = character("Dementor", 105, 40, 47, 80, 30, 0, 0)
-hbot2 = character("Dementor", 105, 40, 47, 80, 30, 0, 0)
-hbot3 = character("Dementor", 105, 40, 47, 80, 30, 0, 0)
-hbot4 = character("Dementor", 105, 40, 47, 80, 30, 0, 0)
-items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa]
+batman = character("Batman", 350, 15, 37, 70, 22, 2, 0)
+wade = character("Deadpool", 285, 12, 34, 86, 28, 1, 0)
+bilbo = character("Bilbo", 250, 9, 31, 90, 43, 1, 0)
+sbot = character("Stormtrooper", 95, 7, 45, 60, 20, 0, 0)
+mbot = character("Sixer", 115, 9, 45, 70, 25, 0, 0)
+hbot = character("Dementor", 140, 13, 50, 80, 15, 0, 0)
+sbot1 = character("Stormtrooper", 98, 8, 43, 61, 30, 0, 0)
+sbot2 = character("Stormtrooper", 93, 7, 45, 57, 18, 0, 0)
+sbot3 = character("Stormtrooper", 97, 7, 49, 53, 19, 0, 0)
+sbot4 = character("Stormtrooper", 91, 7, 36, 64, 24, 0, 0)
+mbot1 = character("Sixer", 120, 7, 48, 71, 27, 0, 0)
+mbot2 = character("Sixer", 114, 9, 49, 80, 28, 0, 0)
+mbot3 = character("Sixer", 119, 8, 52, 72, 24, 0, 0)
+mbot4 = character("Sixer", 109, 10, 54, 76, 22, 0, 0)
+hbot1 = character("Dementor", 148, 14, 43, 83, 23, 0, 0)
+hbot2 = character("Dementor", 142, 18, 48, 87, 25, 0, 0)
+hbot3 = character("Dementor", 150, 12, 56, 82, 36, 0, 0)
+hbot4 = character("Dementor", 137, 21, 52, 84, 34, 0, 0)
+def sanservinofinale():
+    print('HE SAYS:')
+    print("This creature lives in Scotland by morning, works with steel by mid-day, and writes Gospel of Wealth by night. What is it?. SPELLING COUNTS!")
+    answer = input("You have one chance. What is this creature that the dragon speaks of?").title()
+        if answer = "Andrew Carnegie":
+            print("The Dragon roars in fury as it has finally been defeated after millenia of ruling the dungeon. It turns on its belly and eats itself alive.")
+            time.sleep(2)
+            print("Congratulations, adventurer! You have secured the bread. Good game!")
+            time.sleep(7000000000)
+        else:
+            print("The Dragon roars in triumph as it claims yet another unsuspecting adventurer. Wrong answer, fool! You get roasted and eaten. How fun :)")
+            time.sleep(5050005050050505)
+
+items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa, ratstail, snakehead, cataclyst]
 useritems = []
 bosses = [dracula, geicolizard, magneto]
 def addstat(self, item):
@@ -78,83 +94,129 @@ def addstat(self, item):
 def losestat(self, item):
     self.attack = self.attack - item.atkbuf
     print(f"You lost {item.atkbuf} attack. You now have {self.attack} attack")
+    time.sleep(1.5)
     self.accuracy = self.accuracy - item.accbuf
     print(f"You lost {item.accbuf} accuracy. You now have {self.accuracy} accuracy")
+    time.sleep(1.5)
     self.dodge = self.dodge - item.dodgebuf
     print(f"You lost {item.dodgebuf} elusiveness. You now have {self.dodge} elusiveness")
+    time.sleep(1.5)
 def addstat2(self, item):
     self.attack = self.attack + item.atkbuf
-    print(f"Magneto gained {item.atkbuf} attack. You now have {self.attack} attack")
+    print(f"Magneto gained {item.atkbuf} attack. He now has {self.attack} attack")
+    time.sleep(1.5)
     self.accuracy = self.accuracy + item.accbuf
-    print(f"Magneto gained {item.accbuf} accuracy. You now have {self.accuracy} accuracy")
+    print(f"Magneto gained {item.accbuf} accuracy. He now has {self.accuracy} accuracy")
+    time.sleep(1.5)
     self.dodge = self.dodge + item.dodgebuf
-    print(f"Magneto gained {item.dodgebuf} elusiveness. You now have {self.dodge} elusiveness")
+    print(f"Magneto gained {item.dodgebuf} elusiveness. He now has {self.dodge} elusiveness")
+    time.sleep(1.5)
 def shop(self):
+    r = 0
     print("You now visit the shop!")
-    print("Be careful though! You can only buy one item per round, and if you mistype by accident, you're screwed! Type the item exactly as it appears, or the shopkeeper will throw you out!")
     time.sleep(1)
-    print(f"You have {self.gold} gold.")
-    print("You can buy: ")
-    for x in items:
-        print(f"{x.name} which costs {x.cost}")
-    itembought = input("Choose something to buy, or say no.").lower()
-    if itembought == "speed force potion" and self.gold >= speedforce.cost:
-        print("You bought the Speed Force Potion! Congrats!")
-        addstat(user, speedforce)
-        useritems.append(speedforce)
-    elif itembought == "health potion" and self.gold >= helpotion.cost:
-        print("You bought a health potion! Nice!")
-        addstat(user, helpotion)
-        useritems.append(helpotion)
-    elif itembought == "bea" and self.gold >= bea.cost:
-        print("You bought Bea the sword! Cool!")
-        addstat(user, bea)
-        items.remove(bea)
-        useritems.append(bea)
-    elif itembought == "arthur" and self.gold >= arthur.cost:
-        print("You bought Arthur the other sword! Awesome!")
-        addstat(user, arthur)
-        items.remove(arthur)
-        useritems.append(arthur)
-    elif itembought == "batarang" and self.gold >= batarang.cost:
-        print("You bought a Batarang! Dope!")
-        addstat(user, batarang)
-        items.remove(batarang)
-        useritems.append(batarang)
-    elif itembought == "berserker scroll" and self.gold >= berserker.cost:
-        print("You bought a Berserker Scroll! Cool!")
-        addstat(user, berserker)
-        items.remove(berserker)
-        useritems.append(berserker)
-    elif itembought == "club" and self.gold >= club.cost:
-        print("You bought a club! Cool!")
-        addstat(user, club)
-        items.remove(club)
-        useritems.append(club)
-    elif itembought == "dragon's breath" and self.gold >= dragonbreath.cost:
-        print("You bought the Dragon's Breath! Cool!")
-        addstat(user, dragonbreath)
-        items.remove(dragonbreath)
-        useritems.append(dragonbreath)
-    elif itembought == "oompa loompa" and self.gold >= oompaloompa.cost:
-        print("You bought a pet Oompa Loompa! Whoop!")
-        addstat(user, oompaloompa)
-        items.remove(oompaloompa)
-        useritems.append(oompaloompa)
-    elif itembought == "Chargers":
-        print("The luck of Los Angeles is with you. You win! Congratulations!")
-        sys.exit()
-    elif itembought == "No" or itembought == "no":
-        print("Okay! Good luck!(Not really I hope you die).")
-    else:
-        print("That is invalid, either because you don't have enough gold or because you mistyped. Either way, it sucks to be you. I hope you die next round! Try harder next time! :)")
+    while r < 5:
+        time.sleep(1)
+        print(f"You have {self.gold} gold.")
+        print("You can buy: ")
+        for x in items:
+            print(f"{x.name} which costs {x.cost}")
+        itembought = input("Choose something to buy, or say no.").lower()
+        if itembought == "speed force potion" and self.gold >= speedforce.cost:
+            print("You bought the Speed Force Potion! Congrats!")
+            addstat(user, speedforce)
+            time.sleep(1)
+            useritems.append(speedforce)
+        elif itembought == "health potion" and self.gold >= helpotion.cost:
+            print("You bought a health potion! Nice!")
+            addstat(user, helpotion)
+            time.sleep(1)
+            useritems.append(helpotion)
+        elif itembought == "bea" and self.gold >= bea.cost:
+            print("You bought Bea the sword! Cool!")
+            addstat(user, bea)
+            time.sleep(1)
+            items.remove(bea)
+            useritems.append(bea)
+        elif itembought == "arthur" and self.gold >= arthur.cost:
+            print("You bought Arthur the other sword! Awesome!")
+            addstat(user, arthur)
+            time.sleep(1)
+            items.remove(arthur)
+            useritems.append(arthur)
+        elif itembought == "batarang" and self.gold >= batarang.cost:
+            print("You bought a Batarang! Dope!")
+            addstat(user, batarang)
+            time.sleep(1)
+            items.remove(batarang)
+            useritems.append(batarang)
+        elif itembought == "berserker scroll" and self.gold >= berserker.cost:
+            print("You bought a Berserker Scroll! Cool!")
+            addstat(user, berserker)
+            time.sleep(1)
+            items.remove(berserker)
+            useritems.append(berserker)
+        elif itembought == "club" and self.gold >= club.cost:
+            print("You bought a club! Cool!")
+            addstat(user, club)
+            time.sleep(1)
+            items.remove(club)
+            useritems.append(club)
+        elif itembought == "dragon's breath" and self.gold >= dragonbreath.cost:
+            print("You bought the Dragon's Breath! Cool!")
+            addstat(user, dragonbreath)
+            time.sleep(1)
+            items.remove(dragonbreath)
+            useritems.append(dragonbreath)
+        elif itembought == "oompa loompa" and self.gold >= oompaloompa.cost:
+            print("You bought a pet Oompa Loompa! Whoop!")
+            addstat(user, oompaloompa)
+            time.sleep(1)
+            items.remove(oompaloompa)
+            useritems.append(oompaloompa)
+        elif itembought == "rat's tail" and self.gold >= ratstail.cost:
+            print("Wow, you really trust a rat? Unfortunate for you, I guess.")
+            self.gold = self.gold - ratstail.cost
 
+            losestat(user, ratstail)
+            time.sleep(1)
+            items.remove(ratstail)
+        elif itembought == "snake's head" and self.gold >= snakehead.cost:
+            print("You bought the snake's head, only to realize it wasn't severed from the body. It bites you and slithers away. Nice!")
+            self.gold = self.gold - snakehead.cost
+
+            losestat(user, snakehead)
+            time.sleep(1)
+            items.remove(snakehead)
+        elif itembought == "the cataclyst" and self.gold >= cataclyst.cost:
+            print("You do realize that buying a giant explosive is not a good idea, right? It blows up right as you walk out. Luckily, you're damage immune. Unluckily, it has other consequences")
+            self.gold = self.gold - cataclyst.cost
+
+            losestat(user, cataclyst)
+            time.sleep(1)
+            items.remove(cataclyst)
+        elif itembought == "Celtics":
+            print("I believe too. Good job, adventurer! You win!")
+            time.sleep(59999)
+        elif itembought == "No" or itembought == "no":
+            print("Okay! Good luck!(Not really I hope you die). On with the show!")
+            r = r + 5
+        else:
+            print("That is invalid, either because you don't have enough gold or because you mistyped. Either way, it sucks to be you. I hope you die next round! Try harder next time! :)")
+            r = r + 5
+def geicocheck(self):
+    if self.hp <= 0:
+        print("You died from a car crash! How unfortunate. Try harder next time I suppose.")
+        time.sleep(59999)
+    else:
+        print("Oh, you survived the crash? Darn.")
 def leech(self, other):
     print("Dracula leeches 25 health from you! Now you're clearly gonna die! Hahahahahahahahahahahaha")
     self.hp = self.hp - 25
     other.hp = other.hp + 25
-def carinsurance(self, other):
-    print("Hahahahhahhahhhaha! You can save 15% on car insurance, but you gotta crash your car first lmao ¯\_(ツ)_/¯. You gain 150 gold but uh you lose 150 health and all your defense immediately! Also have fun trying to hit a lizard :)")
+def carinsurance(self):
+    print("Welcome to Geico! Hahahahhahhahhhaha! You can save 15% on car insurance, but you gotta crash your car first lmao ¯\_(ツ)_/¯. You gain 150 gold but uh you lose 150 health and all your defense immediately! Also have fun trying to hit a lizard :)")
+    time.sleep(2)
     print("Oh, I forgot to mention. Gold is useless now. Oops.")
     self.gold = self.gold + 150
     self.hp = self.hp - 150
@@ -163,15 +225,24 @@ def magneticfield(self, other):
     for x in useritems:
         print("You have: ")
         print(f"{x.name}")
-    print ("HAHHHAHHAHAHHHAHHAHAHAAHAHHAHAHHAAHAHAHAHAHAHAHAHAAHHAHAHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHA you lose all your items. Good luck!")
+        time.sleep(1.2)
+    print("When suddenly you hear:")
+    time.sleep(1)
+    print ("HAHHHAHHAHAHHHAHHAHAHAAHAHHAHAHHAAHAHAHAHAHAHAHAHAAHHAHAHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHA you're not allowed to use those! That's cheating, peasant!")
+    time.sleep(1.5)
 
     for x in useritems:
         print(f"You lose your {x.name}")
+        time.sleep(1.2)
         losestat(self, x)
-    print("You know what's better? Magneto gets all of your items! Have fun dying!")
+        time.sleep(1.2)
+    print("You know, I could really use these! Thanks for these magical items!  Welcome to the future, scrub! My name is Magneto, and today, YOU DIE!")
+    time.sleep(1.5)
     for x in useritems:
         print(f"Magneto gets your {x.name}")
+        time.sleep(1)
         addstat2(other, x)
+        time.sleep(1)
 
 def healthpotion(user1):
     if user.healthpotions > 0:
@@ -193,15 +264,20 @@ time.sleep(2)
 print("Oh lmao I forgot one last thing these enemies are reincarnations of their movie selves. We all know that zombies don't die fast. As such, they will attack you even after you kill them. You just have to dodge it, I guess.")
 time.sleep(2)
 print("Buena muerte, mi contrario!")
-user = input("Choose a character: Deadpool, Bilbo, or Batman: ").title()
-if user == "Deadpool":
-    user = wade
-elif user == "Bilbo":
-    user = bilbo
-elif user == "Batman":
-    user = batman
-else:
-    print("That is an invalid character. Try again!")
+o = 0
+while o < 5:
+    user = input("Choose a character: Deadpool, Bilbo, or Batman: ").title()
+    if user == "Deadpool":
+        user = wade
+        o = o + 5
+    elif user == "Bilbo":
+        user = bilbo
+        o = o + 5
+    elif user == "Batman":
+        user = batman
+        o = o + 5
+    else:
+        print("That is an invalid character. Try again!")
 
 def fighting(self, other):
 
@@ -217,13 +293,17 @@ def fighting(self, other):
         time.sleep(1)
         if self.hp < 0:
             print("Oh no, you died! Sucks to suck!")
-            quit()
+            time.sleep(59999)
         if other.hp < 0:
             print("Looks like you won! Cool.")
             print(f"You have {self.healthpotions} healthpotions.")
             break
 red = random.randint(1, 100)
 blue = random.randint(1, 100)
+def encounter(other):
+    print(f"You encountered a {other.name}! FIGHT!")
+bosses = [geicolizard, dracula, magneto]
+bosschoice = random.choice(bosses)
 green = [hbot, mbot, sbot, sbot1, sbot2, sbot3, sbot4, mbot1, mbot2, mbot3, mbot4, hbot1, hbot2, hbot3, hbot4]
 bot1 = random.choice(green)
 def showstat(self, other):
@@ -236,35 +316,164 @@ def fight(self, other):
     if yellow < 0:
         yellow == 0
     elif red < self.accuracy and blue > other.dodge:
-        print(f"You attack the {other.name}! The attack is super effective! It deals {yellow} damage! What a hit!")
+        print(f"You attack the {other.name}! The attack is super effective! It deals {yellow} damage! What a hit! Dang it! Ugh can we nerf you?")
         other.hp = other.hp - yellow
     else:
-        print(f"The {other.name} dodged the attack! Great job, {other.name}! Now kill {self.name}!")
+        print(f"You tried to attack the {other.name}, but it dodged the attack! Great job, {other.name}! Now kill {self.name}!")
 def fight2(other, self):
     red = random.randint(1, 100)
     blue = random.randint(1, 100)
     orange = other.attack - self.defense
-    if red < self.accuracy and blue > other.dodge:
+    if red < other.accuracy and blue > self.dodge:
+        print(f"The {other.name} attacks you! The attack is super effective! It deals {orange} damage! Incredible! You're almost dead! Yay.")
+        self.hp = self.hp - orange
+
+    else:
+        print(f"The {other.name} attacked you, but you somehow dodged the attack... Dang it, {other.name}, I was counting on you!")
+def bossfight1(self, other):
+    rand1 = random.randint(1, 100)
+    rand2 = random.randint(1, 100)
+    realatk = self.attack - other.defense
+    if rand1 < self.accuracy and rand2 > other.dodge:
+        print(f"You attack {other.name}! The attack is super effective! It deals {realatk} damage! What a hit! Dang it! Ugh can we nerf you?")
+        other.hp = other.hp - realatk
+    else:
+        print(f"You tried to attack {other.name}, but it dodged the attack! Great job, {other.name}! Now kill {self.name}!")
+def bossfight2(other, self):
+    red = random.randint(1, 100)
+    blue = random.randint(1, 100)
+    orange = other.attack - self.defense
+    if red < other.accuracy and blue > self.dodge:
         print(f"{other.name} attacks you! The attack is super effective! It deals {orange} damage! Incredible! You're almost dead! Yay.")
         self.hp = self.hp - orange
 
     else:
-        print(f"You dodged the attack... Dang it, {other.name}, I was counting on you!")
-def bossfight(self, other):
+        print(f"{other.name} attacked you, but you somehow dodged the attack... Dang it, {other.name}, I was counting on you!")
+def bossfighting(self, other):
+
+    while self.hp > 0 and other.hp > 0:
+
+        bossfight1(self, other)
+        time.sleep(1)
+        showstat(self, other)
+        time.sleep(1)
+        bossfight2(other, self)
+        time.sleep(1)
+        showstat(self, other)
+        time.sleep(1)
+        if self.hp < 0:
+            print("Oh no, you died! Sucks to suck!")
+            time.sleep(59999)
+        if other.hp < 0:
+            print("Looks like you won! Cool.")
+            break
+def bossfightingdracula(self, other):
+
+    while self.hp > 0 and other.hp > 0:
+
+        bossfight1(self, other)
+        time.sleep(2)
+        showstat(self, other)
+        time.sleep(2)
+        bossfight2(other, self)
+        time.sleep(2)
+        showstat(self, other)
+        time.sleep(2)
+        leech(self, other)
+        time.sleep(2)
+        showstat(self, other)
+        if self.hp < 0:
+            print("Oh no, you died! Sucks to suck!")
+            time.sleep(59999)
+        if other.hp < 0:
+            print("Looks like you won! Cool.")
+            break
+def bossfight():
+    b = 0
+    print("YOU HAVE REACHED THE BOSS ROOM! Nice. Lucky, as always, I see. ANYWAYS. CHOOSE YOUR FATE! DEATH BY FIRE, WATER, OR ICE?")
+    print("You have to choose, by the way. There's no other option to win the game")
+    while b < 5:
+        bossroom = input("So, which will it be? Fire, water, or ice? ").lower()
+        if bossroom == "fire":
+            print("You slowly walk into the door laced with flames. The whole world goes black for a second.")
+            time.sleep(1)
+            print("You awaken. Suddenly, you find yourself driving down a road in a Lamborghini. Wow, what a great time, right?")
+            time.sleep(1)
+            print("WRONG. Wonder why, huh? Well, all's fine and dandy until you hear a voice in the chair next to you. You look, and somehow see nothing.")
+            time.sleep(1)
+            print("The noise gets louder. Curious, you turn to the chair with your full attention when you see a little lizard next to you. He says:")
+            time.sleep(1)
+            carinsurance(user)
+            print("It's you versus the Geico Lizard. INSTANT L. (Hahahahhahahaha get it? L for lizard? Ok it was pretty bad). Anyways FIGHT!")
+            showstat(user, geicolizard)
+            time.sleep(1)
+            geicocheck(user)
+            time.sleep(1.5)
+            bossfighting(user,geicolizard)
+            print('You finally manage to grab the lizard by the neck and hold a dagger to its throat. As you are about to cut its head off, it says: "Ok ok ok ok fine. Here, I can offer you savings on home and auto insurance too." Satisfied, you put the lizard down and shake its hand, and you leave as partners and allies.')
+            time.sleep(2.5)
+            b = b + 5
+        elif bossroom == "water":
+            print("You slowly walk into the door engulfed with water. You didn't bring your goggles, so sit back and enjoy the show that you can't see.")
+            time.sleep(1)
+            print("The water slowly dissipates. Confused, and soaked, you open your eyes. You find yourself in a dark castle.")
+            time.sleep(1)
+            print("Still a little dizzy from your journey down the waterfall, you slowly get to your feet and stumble upon a giant coffin.")
+            time.sleep(1)
+            print('Upon the coffin, there is a sign that says:"DO NOT TOUCH". With the intelligence of a caterpillar, you touch it.')
+            time.sleep(1)
+            print("Suddenly, the whole castle begins to shake. Startled, you step back and watch as a figure emerges out of the coffin, with bats flanking its left and right side.")
+            time.sleep(1)
+            print("Amazing job lad, you've just awoken the greatest vampire of all time. Unfortunately, you don't have garlic to save you. Have fun getting your blood sucked! FIGHT!")
+            showstat(user, dracula)
+            time.sleep(1.5)
+            bossfightingdracula(user,dracula)
+            print("Dracula makes one final attempt at your neck, only to hopelessly miss, and collapses in a heap on the floor. You pick up the wooden stake at the stand next to his coffin, and pierce his heart. He explodes in a cloud of dust.")
+            b = b + 5
+        elif bossroom == "ice":
+            print("You walk into the door that is snowy and Christmas-like, hoping that you'll become a part of the cast of Frozen or something like that.")
+            time.sleep(1)
+            print("Instead, as you walk in, the temperature drops suddenly, from 0 Celsius to 0 Kelvin. Your arms slowly begin to lose movement.")
+            time.sleep(1)
+            print("Before you know it, you are trapped within a giant ice cube. You become unconscious.")
+            time.sleep(1)
+            print('You wake up in a barren land. Wondering where you are, you slowly open your eyes and look around.')
+            time.sleep(1)
+            print("You observe laser beams and psychic powers. You quickly realize that you are in the future. You begin to walk around when suddenly you hear a loud screeching noice.")
+            time.sleep(1)
+            print('You walk towards the noise, only to observe a man in a helmet bending metal. You feel sympathy towards the metal, so you throw your spear at the man, only to find that it has no effect.')
+            time.sleep(1)
+            print('The man slowly turns towards you and you realize that this is a fight waiting to happen. Confident in your abilities, you quickly open your inventory to see:')
+            time.sleep(1.5)
+            magneticfield(user, magneto)
+            print("I hope you didn't buy a lot of items! Actually, I hope you did. Huehuehue. FIGHT!")
+            showstat(user, magneto)
+            time.sleep(1.5)
+            bossfighting(user, magneto)
+            print("Magneto makes one last attempt to control your weapons, but they have no use at this point. You pull out your gun with a plastic bullet and finish him for good.")
+            time.sleep(2.5)
+            b = b + 5
+        else:
+            print("That's an invalid room, silly! You have to beat a boss to win, you know.")
+
+
+
+
+
+
 
 def chooseroom(self, other):
-    room = input("Choose a room, 1, 2, 3: ")
-    if room == "1" or room == "2" or room == "3":
-        print(f"You encounter a wild {other.name}! Fight or flight?")
-        time.sleep(3)
-        print(f"That's not a choice, by the way hahahhahahhaha FIGHT!")
-        time.sleep(1.5)
-        showstat(self, other)
-        time.sleep(1.5)
-        fighting(self, other)
-    else:
-        print("Choose again. Sorry, I didn't get that.")
-
+    z = 0
+    while z < 5:
+        room = input("Choose a room, 1, 2, 3: ")
+        if room == "1" or room == "2" or room == "3":
+            encounter(other)
+            showstat(self, other)
+            time.sleep(1.5)
+            fighting(self, other)
+            z = z + 5
+        else:
+            print("Choose again. Sorry, I didn't get that.")
 #healthpotion(user)
 green.remove(bot1)
 bot2 = random.choice(green)
@@ -275,29 +484,58 @@ bot4 = random.choice(green)
 green.remove(bot4)
 bot5 = random.choice(green)
 green.remove(bot5)
+bot6 = random.choice(green)
+green.remove(bot6)
+bot7 = random.choice(green)
+green.remove(bot7)
 chooseroom(user, bot1)
-print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 500000
+print("You got 45 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 9000
 healthpotion(user)
 shop(user)
 chooseroom(user, bot2)
+print("You got 45 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 45
+healthpotion(user)
+shop(user)
+chooseroom(user, bot3)
 print("You got 60 gold for winning that encounter! Congrats! You'll die eventually!")
 user.gold = user.gold + 60
 healthpotion(user)
 shop(user)
-chooseroom(user, bot3)
-print("You got 75 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 75
-healthpotion(user)
-shop(user)
 chooseroom(user, bot4)
-print("You got 90 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 90
+print("You got 70 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 70
 healthpotion(user)
 shop(user)
 chooseroom(user, bot5)
-print("You got 125 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 125
+print("You got 80 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 80
 healthpotion(user)
 shop(user)
-magneticfield(user, magneto)
+chooseroom(user, bot6)
+print("You got 100 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 100
+healthpotion(user)
+shop(user)
+chooseroom(user, bot7)
+print("You got 120 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 120
+healthpotion(user)
+shop(user)
+bossfight()
+time.sleep(15)
+print("Wait a second? YOU THOUGHT YOU WERE DONE??!")
+time.sleep(.5)
+print("THERE IS ONE LAST TRIAL AWAITING YOU. THE GOLDEN DOOR!!")
+time.sleep(.8)
+while q < 5:
+    answer = input("WILL YOU ENTER THE GOLDEN GATE?").lower()
+    if answer == "yes" or answer == "y":
+        print("YOU WALK INTO YOUR FINAL TRIAL. THERE AWAITS A GIANT DRAGON, OF MONSTROUS SIZE AND LENGTH AND GIRTH")
+        print("AS YOU APPROACH, HE OPENS HIS MIGHTY MOUTH AND......")
+        time.sleep(4)
+        sanservinofinale()
+        q = q + 5
+    else:
+        print("Just do it already. I'll even compliment you if you somehow manage to win. You do realize that there's no emergency exit, right?")

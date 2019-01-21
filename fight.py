@@ -2,7 +2,7 @@ import random
 import sys
 import time
 class item:
-    '''Make a weapon class'''
+    '''Make a weapon class to implement buffs to the character's stats'''
     def __init__(self, name, cost, atkbuf, accbuf, dodgebuf, hppotionbuf):
         self.name = name
         self.cost = cost
@@ -11,7 +11,7 @@ class item:
         self.dodgebuf = dodgebuf
         self.hppotionbuf = hppotionbuf
 class character:
-    '''Make a character class'''
+    '''Make a character class just makes the characters you know'''
     def __init__(self, name, hp, defense, attack, accuracy, dodge, healthpotions, gold):
         self.name = name
         self.hp = hp
@@ -22,7 +22,7 @@ class character:
         self.healthpotions = healthpotions
         self.gold = gold
 class boss:
-    '''Make a boss class'''
+    '''Make a boss class these guys are a little different than the characters so i just made them a separate class'''
     def __init__(self, name, hp, defense, attack, accuracy, dodge, specialskill):
         self.name = name
         self.hp = hp
@@ -65,22 +65,25 @@ hbot2 = character("Dementor", 142, 18, 48, 87, 25, 0, 0)
 hbot3 = character("Dementor", 150, 12, 56, 82, 36, 0, 0)
 hbot4 = character("Dementor", 137, 21, 52, 84, 34, 0, 0)
 def sanservinofinale():
+    '''this function just implements the riddle that the finale after the final boss does. One history question for all the marbles'''
     print('HE SAYS:')
     print("This creature lives in Scotland by morning, works with steel by mid-day, and writes Gospel of Wealth by night. What is it?. SPELLING COUNTS!")
     answer = input("You have one chance. What is this creature that the dragon speaks of?").title()
-        if answer = "Andrew Carnegie":
-            print("The Dragon roars in fury as it has finally been defeated after millenia of ruling the dungeon. It turns on its belly and eats itself alive.")
-            time.sleep(2)
-            print("Congratulations, adventurer! You have secured the bread. Good game!")
-            time.sleep(7000000000)
-        else:
-            print("The Dragon roars in triumph as it claims yet another unsuspecting adventurer. Wrong answer, fool! You get roasted and eaten. How fun :)")
-            time.sleep(5050005050050505)
+    if answer == "Andrew Carnegie":
+        print("The Dragon roars in fury as it has finally been defeated after millenia of ruling the dungeon. It turns on its belly and eats itself alive.")
+        time.sleep(2)
+        print("Congratulations, adventurer! You have secured the bread. Good game!")
+        time.sleep(7000000000)
+    else:
+        print("The Dragon roars in triumph as it claims yet another unsuspecting adventurer. Wrong answer, fool! You get roasted and eaten. How fun :)")
+        time.sleep(5050005050050505)
 
 items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa, ratstail, snakehead, cataclyst]
+#listed all the items that are in the shop so i can remove them and add them to the user's items
 useritems = []
 bosses = [dracula, geicolizard, magneto]
 def addstat(self, item):
+    '''buffs the stats of the user when they buy an item an deducts their gold count as well'''
     self.gold = self.gold - item.cost
     print(f"You now have {self.gold} gold")
     self.attack = self.attack + item.atkbuf
@@ -92,6 +95,7 @@ def addstat(self, item):
     self.healthpotions = self.healthpotions + item.hppotionbuf
     print(f"You gained {item.hppotionbuf} healthpotions. You now have {self.healthpotions} healthpotions.")
 def losestat(self, item):
+    '''makes the user lose stats instead of gaining them'''
     self.attack = self.attack - item.atkbuf
     print(f"You lost {item.atkbuf} attack. You now have {self.attack} attack")
     time.sleep(1.5)
@@ -102,6 +106,7 @@ def losestat(self, item):
     print(f"You lost {item.dodgebuf} elusiveness. You now have {self.dodge} elusiveness")
     time.sleep(1.5)
 def addstat2(self, item):
+    '''this is literally just for the Magneto boss. I was gonna use the other addstat function but I didn't like the pronouns'''
     self.attack = self.attack + item.atkbuf
     print(f"Magneto gained {item.atkbuf} attack. He now has {self.attack} attack")
     time.sleep(1.5)
@@ -112,6 +117,7 @@ def addstat2(self, item):
     print(f"Magneto gained {item.dodgebuf} elusiveness. He now has {self.dodge} elusiveness")
     time.sleep(1.5)
 def shop(self):
+    '''time to go shopping!!! r is just a variable to set the while loop up so that users can buy as many items as they want. They buy, then the item gets removed from the shop unless its a healthpotion and they can buy more based on their gold count'''
     r = 0
     print("You now visit the shop!")
     time.sleep(1)
@@ -205,16 +211,19 @@ def shop(self):
             print("That is invalid, either because you don't have enough gold or because you mistyped. Either way, it sucks to be you. I hope you die next round! Try harder next time! :)")
             r = r + 5
 def geicocheck(self):
+    '''only because otherwise the user wins if they die from the car crash? idk not supposed to happen this checks the user's health before they fight to ensure user doesn't win immediately'''
     if self.hp <= 0:
         print("You died from a car crash! How unfortunate. Try harder next time I suppose.")
         time.sleep(59999)
     else:
         print("Oh, you survived the crash? Darn.")
 def leech(self, other):
+    '''leech, Dracula's special ability, which allows him to drain health and gain it. Activated every turn after both characters attack'''
     print("Dracula leeches 25 health from you! Now you're clearly gonna die! Hahahahahahahahahahahaha")
     self.hp = self.hp - 25
     other.hp = other.hp + 25
 def carinsurance(self):
+    '''car insurance thing, Geico Lizard's special ability. Basically they lose health and damage for gold which is useless'''
     print("Welcome to Geico! Hahahahhahhahhhaha! You can save 15% on car insurance, but you gotta crash your car first lmao ¯\_(ツ)_/¯. You gain 150 gold but uh you lose 150 health and all your defense immediately! Also have fun trying to hit a lizard :)")
     time.sleep(2)
     print("Oh, I forgot to mention. Gold is useless now. Oops.")
@@ -222,6 +231,7 @@ def carinsurance(self):
     self.hp = self.hp - 150
     self.defense = 0
 def magneticfield(self, other):
+    '''magneto's special ability, which lists the user's items before having Magneto steal all of them. Lists the user's stats and Magneto's stats after the items transfer'''
     for x in useritems:
         print("You have: ")
         print(f"{x.name}")
@@ -244,15 +254,20 @@ def magneticfield(self, other):
         addstat2(other, x)
         time.sleep(1)
 
-def healthpotion(user1):
-    if user.healthpotions > 0:
-        magenta = input("Would you like to take a health potion?")
+def healthpotion(self):
+    '''g just sets up the while loop so that the user can take as many of their health potions as they please'''
+    g = 0
+    while self.healthpotions > 0 and g < 5:
+        magenta = input("Would you like to take a health potion?").lower
         if magenta == "y" or magenta == "yes":
            print("You used a health potion! Gain 40 health immediately! Now you won't die as fast!")
-           user.hp = user.hp + 40
-           user.healthpotions -= 1
-        else:
+           self.hp = self.hp + 40
+           self.healthpotions -= 1
+        elif magenta == "no" or magenta == "n":
            print("Okay then. I hope you die next round!")
+           g = g + 5
+        else:
+            print("I didn't get that. Do you want one or not?")
 print("Welcome to the Challenger, Nooblet! Are you ready to take on some of the greatest nemises in all of existence? No? Well that sucks, because you're gonna do it anyways¯\_(ツ)_/¯. At least you have some valuable allies. Enjoy!")
 time.sleep(1)
 print("The rules of this game are simple. You choose a character and adventure through the dungeon. There are a total of 5 rooms, each with a varying level of difficulty and a different enemy to face.")
@@ -264,6 +279,8 @@ time.sleep(2)
 print("Oh lmao I forgot one last thing these enemies are reincarnations of their movie selves. We all know that zombies don't die fast. As such, they will attack you even after you kill them. You just have to dodge it, I guess.")
 time.sleep(2)
 print("Buena muerte, mi contrario!")
+#just some introductory lines the usual
+'''o is another while loop activator thing so that the user has to pick a character'''
 o = 0
 while o < 5:
     user = input("Choose a character: Deadpool, Bilbo, or Batman: ").title()
@@ -280,7 +297,7 @@ while o < 5:
         print("That is an invalid character. Try again!")
 
 def fighting(self, other):
-
+    '''basically implements all the fight functions down later into one big function that makes them fight until one of them dies'''
     while self.hp > 0 and other.hp > 0:
 
         fight(self, other)
@@ -298,18 +315,21 @@ def fighting(self, other):
             print("Looks like you won! Cool.")
             print(f"You have {self.healthpotions} healthpotions.")
             break
-red = random.randint(1, 100)
-blue = random.randint(1, 100)
+
 def encounter(other):
+    '''Idk why I made this it just introduces the fight I suppose'''
     print(f"You encountered a {other.name}! FIGHT!")
-bosses = [geicolizard, dracula, magneto]
-bosschoice = random.choice(bosses)
+
 green = [hbot, mbot, sbot, sbot1, sbot2, sbot3, sbot4, mbot1, mbot2, mbot3, mbot4, hbot1, hbot2, hbot3, hbot4]
 bot1 = random.choice(green)
+#Choosing random bots for random rooms. I do that a lot
 def showstat(self, other):
+    '''Shows the stats of the user and the enemy each turn so that the player doesn't get confused or whatever'''
     print(f"You have:{self.hp} hp, {self.defense} defense, {self.attack} attack, {self.accuracy} accuracy, and {self.dodge} evasiveness.")
     print(f"Your enemy has:{other.hp} hp, {other.defense} defense, {other.attack} attack, {other.accuracy} accuracy, and {other.dodge} evasiveness.")
+
 def fight(self, other):
+    '''The fight function 1.0!!! Basically if the user is on target is a percentage that is the user's accuracy. Even if he is on target, the enemy has a percentage to dodge that attack which is their dodge/elusiveness number. Otherwise its just a fight.'''
     red = random.randint(1, 100)
     blue = random.randint(1, 100)
     yellow = self.attack - other.defense
@@ -321,6 +341,7 @@ def fight(self, other):
     else:
         print(f"You tried to attack the {other.name}, but it dodged the attack! Great job, {other.name}! Now kill {self.name}!")
 def fight2(other, self):
+    '''Same thing as the first fight only the other guy is attacking you'''
     red = random.randint(1, 100)
     blue = random.randint(1, 100)
     orange = other.attack - self.defense
@@ -331,6 +352,7 @@ def fight2(other, self):
     else:
         print(f"The {other.name} attacked you, but you somehow dodged the attack... Dang it, {other.name}, I was counting on you!")
 def bossfight1(self, other):
+    '''legit the same as the fights only the pronouns are slightly different'''
     rand1 = random.randint(1, 100)
     rand2 = random.randint(1, 100)
     realatk = self.attack - other.defense
@@ -340,6 +362,7 @@ def bossfight1(self, other):
     else:
         print(f"You tried to attack {other.name}, but it dodged the attack! Great job, {other.name}! Now kill {self.name}!")
 def bossfight2(other, self):
+    '''same idea as bossfight 1'''
     red = random.randint(1, 100)
     blue = random.randint(1, 100)
     orange = other.attack - self.defense
@@ -350,7 +373,7 @@ def bossfight2(other, self):
     else:
         print(f"{other.name} attacked you, but you somehow dodged the attack... Dang it, {other.name}, I was counting on you!")
 def bossfighting(self, other):
-
+    '''its the fighting thing only i just added the bossfight things with the pronouns in it so it looks cleaner'''
     while self.hp > 0 and other.hp > 0:
 
         bossfight1(self, other)
@@ -368,7 +391,7 @@ def bossfighting(self, other):
             print("Looks like you won! Cool.")
             break
 def bossfightingdracula(self, other):
-
+    '''its bossfighting but i had to include leech for dracula specifically so that's why its here'''
     while self.hp > 0 and other.hp > 0:
 
         bossfight1(self, other)
@@ -389,6 +412,7 @@ def bossfightingdracula(self, other):
             print("Looks like you won! Cool.")
             break
 def bossfight():
+    '''b continues the while loop. Just a bunch of text stuff and then you fight a boss based upon which room you choose. Special abilities included'''
     b = 0
     print("YOU HAVE REACHED THE BOSS ROOM! Nice. Lucky, as always, I see. ANYWAYS. CHOOSE YOUR FATE! DEATH BY FIRE, WATER, OR ICE?")
     print("You have to choose, by the way. There's no other option to win the game")
@@ -463,6 +487,7 @@ def bossfight():
 
 
 def chooseroom(self, other):
+    '''z is another while loop continuer. This basically allows the user to choose a room and fight a monster'''
     z = 0
     while z < 5:
         room = input("Choose a room, 1, 2, 3: ")
@@ -474,7 +499,8 @@ def chooseroom(self, other):
             z = z + 5
         else:
             print("Choose again. Sorry, I didn't get that.")
-#healthpotion(user)
+
+#Choosing random bottssss
 green.remove(bot1)
 bot2 = random.choice(green)
 green.remove(bot2)
@@ -489,8 +515,8 @@ green.remove(bot6)
 bot7 = random.choice(green)
 green.remove(bot7)
 chooseroom(user, bot1)
-print("You got 45 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 9000
+print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 40
 healthpotion(user)
 shop(user)
 chooseroom(user, bot2)
@@ -523,13 +549,18 @@ print("You got 120 gold for winning that encounter! Congrats! You'll die eventua
 user.gold = user.gold + 120
 healthpotion(user)
 shop(user)
+#After every fight, the user visits the shop and can use health potions at leisure
 bossfight()
+#After 7 rooms, the user fights the boss. If they win the code continues
 time.sleep(15)
+#For dramatic effect
 print("Wait a second? YOU THOUGHT YOU WERE DONE??!")
 time.sleep(.5)
 print("THERE IS ONE LAST TRIAL AWAITING YOU. THE GOLDEN DOOR!!")
 time.sleep(.8)
+#q makes more while loop stuff
 while q < 5:
+    '''Legit just makes them go ito the room and answer a question. It's mostly for connective text'''
     answer = input("WILL YOU ENTER THE GOLDEN GATE?").lower()
     if answer == "yes" or answer == "y":
         print("YOU WALK INTO YOUR FINAL TRIAL. THERE AWAITS A GIANT DRAGON, OF MONSTROUS SIZE AND LENGTH AND GIRTH")

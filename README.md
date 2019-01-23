@@ -12,3 +12,8 @@ to choose a boss round to fight which is not known to the user. The three bosses
 after they attack each other, Geico lizard destroys all of the user's defense and has like 90 dodge, and magneto steals all of the user's positive
 items. If the user wins, they then have to answer none other than a history question to win the game for good. I made it pretty easy to win but I
 also did do some character nerfing afterwards and idk how its gonna go now. Its really up to how the user plays.
+
+My citations:
+Stack Overflow. (2019). Stack Overflow - Where Developers Learn, Share, & Build Careers. [online] Available at: https://stackoverflow.com/ [Accessed 23 Jan. 2019].
+“GitPitch Slide Deck.” GitPitch, gitpitch.com/gersteinj/intro-to-programming-18/master?p=docs/units/04-object-oriented/4b#/2.
+A lot of it was what we did in class plus a little more not much though

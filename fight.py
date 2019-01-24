@@ -46,9 +46,9 @@ berserker = item("Berserker Scroll", 125, 50, 0, 0, 0)
 club = item("Club", 8, 3, 0, 0, 0)
 dragonbreath = item("Dragon's Breath", 225, 100, 40, 0, 0)
 oompaloompa = item("Oompa Loompa", 400, 150, 55, 0, 1)
-batman = character("Batman", 480, 15, 40, 70, 16, 2, 0)
-wade = character("Deadpool", 535, 12, 37, 86, 20, 1, 0)
-bilbo = character("Bilbo", 421, 9, 43, 90, 26, 1, 0)
+batman = character("Batman", 580, 15, 47, 70, 16, 2, 0)
+wade = character("Deadpool", 635, 12, 43, 86, 20, 1, 0)
+bilbo = character("Bilbo", 521, 9, 50, 90, 26, 1, 0)
 sbot = character("Stormtrooper", 120, 7, 45, 60, 20, 0, 0)
 mbot = character("Sixer", 195, 9, 45, 70, 25, 0, 0)
 hbot = character("Dementor", 240, 13, 50, 80, 15, 0, 0)
@@ -86,8 +86,10 @@ def sanservinofinale():
         time.sleep(5050005050050505)
 
 items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa, ratstail, snakehead, cataclyst]
+itemnames = ["Speed Force Potion", "Bea", "Arthur", "Batarang", "Berserker Scroll", "Club", "Dragon's Breath", "Oompa Loompa", "Rat's Tail", "Kevin Durant", "The Cataclyst"]
 #listed all the items that are in the shop so i can remove them and add them to the user's items
 useritems = []
+useritemnames = []
 bosses = [dracula, geicolizard, magneto]
 def addstat(self, item):
     '''buffs the stats of the user when they buy an item an deducts their gold count as well'''
@@ -137,66 +139,86 @@ def shop(self):
         for x in items:
             print(f"{x.name} which costs {x.cost}")
             time.sleep(.35)
-        itembought = input("Choose something to buy, or say no.").lower()
-        if itembought == "speed force potion" and self.gold >= speedforce.cost:
+        itembought = input("Choose something to buy, or say no.").title()
+        if itembought in useritemnames and itembought not in itemnames:
+            print("That item is out of stock! Sorry, you can't be that op!")
+
+        elif itembought == "Speed Force Potion" and self.gold >= speedforce.cost:
             print("You bought the Speed Force Potion! Congrats!")
             addstat(user, speedforce)
             time.sleep(1)
             items.remove(speedforce)
-            useritems.append(speedforce)
-        elif itembought == "health potion" and self.gold >= helpotion.cost:
+            useritemnames.append(speedforce.name)
+            itemnames.remove(speedforce.name)
+        elif itembought == "Health Potion" and self.gold >= helpotion.cost:
             print("You bought a health potion! Nice!")
             addstat(user, helpotion)
             time.sleep(1)
-        elif itembought == "bea" and self.gold >= bea.cost:
+        elif itembought == "Bea" and self.gold >= bea.cost:
             print("You bought Bea the sword! Cool!")
             addstat(user, bea)
             time.sleep(1)
             items.remove(bea)
             useritems.append(bea)
-        elif itembought == "arthur" and self.gold >= arthur.cost:
+            useritemnames.append(bea.name)
+            itemnames.remove(bea.name)
+        elif itembought == "Arthur" and self.gold >= arthur.cost:
             print("You bought Arthur the other sword! Awesome!")
             addstat(user, arthur)
             time.sleep(1)
             items.remove(arthur)
-            useritems.append(arthur)
-        elif itembought == "batarang" and self.gold >= batarang.cost:
+            useritems.append(arthur.name)
+            useritemnames.append(arthur.name)
+            itemnames.remove(speedforce.name)
+        elif itembought == "Batarang" and self.gold >= batarang.cost:
             print("You bought a Batarang! Dope!")
             addstat(user, batarang)
             time.sleep(1)
             items.remove(batarang)
             useritems.append(batarang)
-        elif itembought == "berserker scroll" and self.gold >= berserker.cost:
+            useritemnames.append(batarang.name)
+            itemnames.remove(batarang.name)
+        elif itembought == "Berserker Scroll" and self.gold >= berserker.cost:
             print("You bought a Berserker Scroll! Cool!")
             addstat(user, berserker)
             time.sleep(1)
             items.remove(berserker)
             useritems.append(berserker)
-        elif itembought == "club" and self.gold >= club.cost:
+            useritemnames.append(berserker.name)
+            itemnames.remove(berserker.name)
+        elif itembought == "Club" and self.gold >= club.cost:
             print("You bought a club! Cool!")
             addstat(user, club)
             time.sleep(1)
             items.remove(club)
             useritems.append(club)
-        elif itembought == "dragon's breath" and self.gold >= dragonbreath.cost:
+            useritemnames.append(club.name)
+            itemnames.remove(club.name)
+        elif itembought == "Dragon's Breath" and self.gold >= dragonbreath.cost:
             print("You bought the Dragon's Breath! Cool!")
             addstat(user, dragonbreath)
             time.sleep(1)
             items.remove(dragonbreath)
             useritems.append(dragonbreath)
-        elif itembought == "oompa loompa" and self.gold >= oompaloompa.cost:
+            useritemnames.append(bea.name)
+            itemnames.remove(bea.name)
+        elif itembought == "Oompa Loompa" and self.gold >= oompaloompa.cost:
             print("You bought a pet Oompa Loompa! Whoop!")
             addstat(user, oompaloompa)
             time.sleep(1)
             items.remove(oompaloompa)
             useritems.append(oompaloompa)
-        elif itembought == "rat's tail" and self.gold >= ratstail.cost:
+            useritemnames.append(oompaloompa.name)
+            itemnames.remove(oompaloompa.name)
+        elif itembought == "Rat's Tail" and self.gold >= ratstail.cost:
             print("Wow, you really trust a rat? Unfortunate for you, I guess.")
             self.gold = self.gold - ratstail.cost
 
             losestat(user, ratstail)
             time.sleep(1)
             items.remove(ratstail)
+            useritemnames.append(ratstail.name)
+            itemnames.remove(ratstail.name)
         elif itembought == "Kevin Durant" and self.gold >= snakehead.cost:
             print("You bought the snake itself, only to realize it wasn't actually dead. It bites you and slithers away to join the Warriors. Nice!")
             self.gold = self.gold - snakehead.cost
@@ -204,13 +226,17 @@ def shop(self):
             losestat(user, snakehead)
             time.sleep(1)
             items.remove(snakehead)
-        elif itembought == "the cataclyst" and self.gold >= cataclyst.cost:
+            useritemnames.append(snakehead.name)
+            itemnames.remove(snakehead.name)
+        elif itembought == "The Cataclyst" and self.gold >= cataclyst.cost:
             print("You do realize that buying a giant explosive is not a good idea, right? It blows up right as you walk out. Luckily, you're damage immune. Unluckily, it has other consequences")
             self.gold = self.gold - cataclyst.cost
 
             losestat(user, cataclyst)
             time.sleep(1)
             items.remove(cataclyst)
+            useritemnames.append(cataclyst.name)
+            itemnames.remove(cataclyst.name)
         elif itembought == "No" or itembought == "no":
             print("Okay! Good luck!(Not really I hope you die). On with the show!")
             r = r + 5
@@ -279,15 +305,15 @@ def healthpotion(self):
             print("Can you just say yes or no please?")
 
 print("Welcome to the Challenger, Nooblet! Are you ready to take on some of the greatest nemises in all of existence? No? Well that sucks, because you're gonna do it anyways¯\_(ツ)_/¯. At least you have some valuable allies. Enjoy!")
-time.sleep(6)
+#time.sleep(6)
 print("The rules of this game are simple. You choose a character and adventure through the dungeon. There are a total of 5 rooms, each with a varying level of difficulty and a different enemy to face.")
-time.sleep(6)
+#time.sleep(6)
 print("Should you die within the rooms, there's no going back! If you somehow make it through the rooms, you will face a final boss. They all have special abilities and are very strong, so get ready to have some funnn!")
-time.sleep(6)
+#time.sleep(6)
 print("You will earn gold and can enter the shop after every fight. You can buy things like weapons, potions, and other similar items that will help you win(or maybe not). Guess you'll have to find out!")
-time.sleep(6)
+#time.sleep(6)
 print("Oh lmao I forgot one last thing these enemies are reincarnations of their movie selves. We all know that zombies don't die fast. As such, they will attack you even after you kill them. You just have to dodge it, I guess.")
-time.sleep(6)
+#time.sleep(6)
 print("Buena muerte, mi contrario!")
 #just some introductory lines the usual
 '''o is another while loop activator thing so that the user has to pick a character'''
@@ -394,16 +420,24 @@ def bossfight2(other, self):
     else:
         print(f"{other.name} attacked you, but you somehow dodged the attack... Dang it, {other.name}, I was counting on you!")
 def bossfighting(self, other):
-    '''its the fighting thing only i just added the bossfight things with the pronouns in it so it looks cleaner'''
+    '''its the fighting thing only i just added the bossfight things with the pronouns in it so it looks cleaner. I added the print blank lines to clean it up a bit and make it more readable.'''
     while self.hp > 0 and other.hp > 0:
 
         bossfight1(self, other)
         time.sleep(1)
+        print("")
+        time.sleep(1)
         showstat(self, other)
+        time.sleep(1)
+        print("")
         time.sleep(1)
         bossfight2(other, self)
         time.sleep(1)
+        print("")
+        time.sleep(1)
         showstat(self, other)
+        time.sleep(1)
+        print("")
         time.sleep(1)
         if self.hp <= 0:
             print("Oh no, you died! Sucks to suck!")
@@ -416,16 +450,29 @@ def bossfightingdracula(self, other):
     while self.hp > 0 and other.hp > 0:
 
         bossfight1(self, other)
-        time.sleep(2)
+        time.sleep(1)
+        print("")
+        time.sleep(1)
         showstat(self, other)
-        time.sleep(2)
+        time.sleep(1)
+        print("")
+        time.sleep(1)
         bossfight2(other, self)
-        time.sleep(2)
+        time.sleep(1)
+        print("")
+        time.sleep(1)
         showstat(self, other)
-        time.sleep(2)
+        time.sleep(1)
+        print("")
+        time.sleep(1)
         leech(self, other)
-        time.sleep(2)
+        time.sleep(1)
+        print("")
+        time.sleep(1)
         showstat(self, other)
+        time.sleep(1)
+        print("")
+        time.sleep(1)
         if self.hp <= 0:
             print("Oh no, you died! Sucks to suck!")
             time.sleep(59999)
@@ -535,10 +582,10 @@ bot6 = random.choice(green)
 green.remove(bot6)
 bot7 = random.choice(green)
 green.remove(bot7)
-chooseroom(user, bot1)
-print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 40
-healthpotion(user)
+#chooseroom(user, bot1)
+#print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
+#user.gold = user.gold + 40
+#healthpotion(user)
 shop(user)
 chooseroom(user, bot2)
 print("You got 50 gold for winning that encounter! Congrats! You'll die eventually!")

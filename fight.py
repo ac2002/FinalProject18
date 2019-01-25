@@ -44,7 +44,7 @@ arthur = item("Arthur", 60, 15, 20, 1, 0)
 batarang = item("Batarang", 10, 3, 7, 0, 0)
 berserker = item("Berserker Scroll", 125, 50, 0, 0, 0)
 club = item("Club", 8, 3, 0, 0, 0)
-dragonbreath = item("Dragon's Breath", 225, 100, 40, 0, 0)
+dragonbreath = item("Dragon Breath", 225, 100, 40, 0, 0)
 oompaloompa = item("Oompa Loompa", 400, 150, 55, 0, 1)
 batman = character("Batman", 580, 15, 47, 70, 16, 2, 0)
 wade = character("Deadpool", 635, 12, 43, 86, 20, 1, 0)
@@ -86,7 +86,7 @@ def sanservinofinale():
         time.sleep(5050005050050505)
 
 items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa, ratstail, snakehead, cataclyst]
-itemnames = ["Speed Force Potion", "Bea", "Arthur", "Batarang", "Berserker Scroll", "Club", "Dragon's Breath", "Oompa Loompa", "Rat's Tail", "Kevin Durant", "The Cataclyst"]
+itemnames = ["Speed Force Potion", "Bea", "Arthur", "Batarang", "Berserker Scroll", "Club", "Dragon Breath", "Oompa Loompa", "Rat's Tail", "Kevin Durant", "The Cataclyst"]
 #listed all the items that are in the shop so i can remove them and add them to the user's items
 useritems = []
 useritemnames = []
@@ -194,8 +194,8 @@ def shop(self):
             useritems.append(club)
             useritemnames.append(club.name)
             itemnames.remove(club.name)
-        elif itembought == "Dragon's Breath" and self.gold >= dragonbreath.cost:
-            print("You bought the Dragon's Breath! Cool!")
+        elif itembought == "Dragon Breath" and self.gold >= dragonbreath.cost:
+            print("You bought Dragon Breath! Cool!")
             addstat(user, dragonbreath)
             time.sleep(1)
             items.remove(dragonbreath)
@@ -305,15 +305,15 @@ def healthpotion(self):
             print("Can you just say yes or no please?")
 
 print("Welcome to the Challenger, Nooblet! Are you ready to take on some of the greatest nemises in all of existence? No? Well that sucks, because you're gonna do it anyways¯\_(ツ)_/¯. At least you have some valuable allies. Enjoy!")
-#time.sleep(6)
-print("The rules of this game are simple. You choose a character and adventure through the dungeon. There are a total of 5 rooms, each with a varying level of difficulty and a different enemy to face.")
-#time.sleep(6)
+time.sleep(6)
+print("The rules of this game are simple. You choose a character and adventure through the dungeon. There are a total of 7 rooms, each with a varying level of difficulty and a different enemy to face.")
+time.sleep(6)
 print("Should you die within the rooms, there's no going back! If you somehow make it through the rooms, you will face a final boss. They all have special abilities and are very strong, so get ready to have some funnn!")
-#time.sleep(6)
+time.sleep(6)
 print("You will earn gold and can enter the shop after every fight. You can buy things like weapons, potions, and other similar items that will help you win(or maybe not). Guess you'll have to find out!")
-#time.sleep(6)
+time.sleep(6)
 print("Oh lmao I forgot one last thing these enemies are reincarnations of their movie selves. We all know that zombies don't die fast. As such, they will attack you even after you kill them. You just have to dodge it, I guess.")
-#time.sleep(6)
+time.sleep(6)
 print("Buena muerte, mi contrario!")
 #just some introductory lines the usual
 '''o is another while loop activator thing so that the user has to pick a character'''
@@ -407,7 +407,7 @@ def bossfight1(self, other):
         print(f"You attack {other.name}! The attack is super effective! It deals {realatk} damage! What a hit! Dang it! Ugh can we nerf you?")
         other.hp = other.hp - realatk
     else:
-        print(f"You tried to attack {other.name}, but it dodged the attack! Great job, {other.name}! Now kill {self.name}!")
+        print(f"You tried to attack {other.name}, but he dodged the attack! Great job, {other.name}! Now kill {self.name}!")
 def bossfight2(other, self):
     '''same idea as bossfight 1'''
     red = random.randint(1, 100)
@@ -450,29 +450,29 @@ def bossfightingdracula(self, other):
     while self.hp > 0 and other.hp > 0:
 
         bossfight1(self, other)
-        time.sleep(1)
+        #time.sleep(1)
         print("")
-        time.sleep(1)
+        #time.sleep(1)
         showstat(self, other)
-        time.sleep(1)
+        #time.sleep(1)
         print("")
-        time.sleep(1)
+       # time.sleep(1)
         bossfight2(other, self)
-        time.sleep(1)
+       # time.sleep(1)
         print("")
-        time.sleep(1)
+        #time.sleep(1)
         showstat(self, other)
-        time.sleep(1)
+       # time.sleep(1)
         print("")
-        time.sleep(1)
+        #time.sleep(1)
         leech(self, other)
-        time.sleep(1)
+        #time.sleep(1)
         print("")
-        time.sleep(1)
+        #time.sleep(1)
         showstat(self, other)
-        time.sleep(1)
+        #time.sleep(1)
         print("")
-        time.sleep(1)
+        #time.sleep(1)
         if self.hp <= 0:
             print("Oh no, you died! Sucks to suck!")
             time.sleep(59999)
@@ -586,32 +586,32 @@ green.remove(bot7)
 #print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
 #user.gold = user.gold + 40
 #healthpotion(user)
-shop(user)
-chooseroom(user, bot2)
-print("You got 50 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 50
-healthpotion(user)
-shop(user)
-chooseroom(user, bot3)
-print("You got 60 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 60
-healthpotion(user)
-shop(user)
-chooseroom(user, bot4)
-print("You got 70 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 70
-healthpotion(user)
-shop(user)
-chooseroom(user, bot5)
-print("You got 80 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 80
-healthpotion(user)
-shop(user)
-chooseroom(user, bot6)
-print("You got 100 gold for winning that encounter! Congrats! You'll die eventually!")
-user.gold = user.gold + 100
-healthpotion(user)
-shop(user)
+#shop(user)
+#chooseroom(user, bot2)
+#print("You got 50 gold for winning that encounter! Congrats! You'll die eventually!")
+#user.gold = user.gold + 50
+#healthpotion(user)
+#shop(user)
+#chooseroom(user, bot3)
+#print("You got 60 gold for winning that encounter! Congrats! You'll die eventually!")
+#user.gold = user.gold + 60
+#healthpotion(user)
+#shop(user)
+#chooseroom(user, bot4)
+#print("You got 70 gold for winning that encounter! Congrats! You'll die eventually!")
+#user.gold = user.gold + 70
+#healthpotion(user)
+#shop(user)
+#chooseroom(user, bot5)
+#print("You got 80 gold for winning that encounter! Congrats! You'll die eventually!")
+#user.gold = user.gold + 80
+#healthpotion(user)
+#shop(user)
+#chooseroom(user, bot6)
+#print("You got 100 gold for winning that encounter! Congrats! You'll die eventually!")
+#user.gold = user.gold + 100
+#healthpotion(user)
+#shop(user)
 chooseroom(user, bot7)
 print("You got 120 gold for winning that encounter! Congrats! You'll die eventually!")
 user.gold = user.gold + 120

@@ -37,7 +37,7 @@ magneto = boss("Magneto", 600, 1, 3, 60, 25, "Magnetic Field")
 speedforce = item("Speed Force Potion", 70, 0, 5, 13, 0)
 snakehead = item("Kevin Durant", 25, 10, 2, 5, 0)
 cataclyst = item("The Cataclyst", 100, 50, 10, 0, 0)
-ratstail = item("Rat's Tail", 75, 0, 0, 25, 0)
+ratstail = item("Rat Tail", 75, 0, 0, 25, 0)
 helpotion = item("Health Potion", 35, 0, 0, 0, 1)
 bea = item("Bea", 40, 10, 14, 0, 0)
 arthur = item("Arthur", 60, 15, 20, 1, 0)
@@ -86,7 +86,7 @@ def sanservinofinale():
         time.sleep(5050005050050505)
 
 items = [speedforce, helpotion, bea, arthur, batarang, berserker, club, dragonbreath, oompaloompa, ratstail, snakehead, cataclyst]
-itemnames = ["Speed Force Potion", "Bea", "Arthur", "Batarang", "Berserker Scroll", "Club", "Dragon Breath", "Oompa Loompa", "Rat's Tail", "Kevin Durant", "The Cataclyst"]
+itemnames = ["Speed Force Potion", "Bea", "Arthur", "Batarang", "Berserker Scroll", "Club", "Dragon Breath", "Oompa Loompa", "Rat Tail", "Kevin Durant", "The Cataclyst"]
 #listed all the items that are in the shop so i can remove them and add them to the user's items
 useritems = []
 useritemnames = []
@@ -161,7 +161,7 @@ def shop(self):
             items.remove(bea)
             useritems.append(bea)
             useritemnames.append(bea.name)
-            itemnames.remove(bea.name)
+            itemnames.remove("Bea")
         elif itembought == "Arthur" and self.gold >= arthur.cost:
             print("You bought Arthur the other sword! Awesome!")
             addstat(user, arthur)
@@ -169,7 +169,7 @@ def shop(self):
             items.remove(arthur)
             useritems.append(arthur.name)
             useritemnames.append(arthur.name)
-            itemnames.remove(speedforce.name)
+            itemnames.remove("Arthur")
         elif itembought == "Batarang" and self.gold >= batarang.cost:
             print("You bought a Batarang! Dope!")
             addstat(user, batarang)
@@ -177,7 +177,7 @@ def shop(self):
             items.remove(batarang)
             useritems.append(batarang)
             useritemnames.append(batarang.name)
-            itemnames.remove(batarang.name)
+            itemnames.remove("Batarang")
         elif itembought == "Berserker Scroll" and self.gold >= berserker.cost:
             print("You bought a Berserker Scroll! Cool!")
             addstat(user, berserker)
@@ -185,7 +185,7 @@ def shop(self):
             items.remove(berserker)
             useritems.append(berserker)
             useritemnames.append(berserker.name)
-            itemnames.remove(berserker.name)
+            itemnames.remove("Berserker Scroll")
         elif itembought == "Club" and self.gold >= club.cost:
             print("You bought a club! Cool!")
             addstat(user, club)
@@ -200,8 +200,8 @@ def shop(self):
             time.sleep(1)
             items.remove(dragonbreath)
             useritems.append(dragonbreath)
-            useritemnames.append(bea.name)
-            itemnames.remove(bea.name)
+            useritemnames.append(dragonbreath.name)
+            itemnames.remove(dragonbreath.name)
         elif itembought == "Oompa Loompa" and self.gold >= oompaloompa.cost:
             print("You bought a pet Oompa Loompa! Whoop!")
             addstat(user, oompaloompa)
@@ -210,7 +210,7 @@ def shop(self):
             useritems.append(oompaloompa)
             useritemnames.append(oompaloompa.name)
             itemnames.remove(oompaloompa.name)
-        elif itembought == "Rat's Tail" and self.gold >= ratstail.cost:
+        elif itembought == "Rat Tail" and self.gold >= ratstail.cost:
             print("Wow, you really trust a rat? Unfortunate for you, I guess.")
             self.gold = self.gold - ratstail.cost
 
@@ -293,6 +293,7 @@ def healthpotion(self):
     g = 0
     '''lets the user use a health potion'''
     while g < 5 and self.healthpotions > 0:
+        print(f"You have {self.healthpotions} healthpotions")
         magenta = input("Would you like to take a health potion?").lower()
         if magenta == "y" or magenta == "yes":
            print("You used a health potion! Gain 200 health immediately! Now you won't die as fast!")
@@ -582,36 +583,36 @@ bot6 = random.choice(green)
 green.remove(bot6)
 bot7 = random.choice(green)
 green.remove(bot7)
-#chooseroom(user, bot1)
-#print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
-#user.gold = user.gold + 40
-#healthpotion(user)
-#shop(user)
-#chooseroom(user, bot2)
-#print("You got 50 gold for winning that encounter! Congrats! You'll die eventually!")
-#user.gold = user.gold + 50
-#healthpotion(user)
-#shop(user)
-#chooseroom(user, bot3)
-#print("You got 60 gold for winning that encounter! Congrats! You'll die eventually!")
-#user.gold = user.gold + 60
-#healthpotion(user)
-#shop(user)
-#chooseroom(user, bot4)
-#print("You got 70 gold for winning that encounter! Congrats! You'll die eventually!")
-#user.gold = user.gold + 70
-#healthpotion(user)
-#shop(user)
-#chooseroom(user, bot5)
-#print("You got 80 gold for winning that encounter! Congrats! You'll die eventually!")
-#user.gold = user.gold + 80
-#healthpotion(user)
-#shop(user)
-#chooseroom(user, bot6)
-#print("You got 100 gold for winning that encounter! Congrats! You'll die eventually!")
-#user.gold = user.gold + 100
-#healthpotion(user)
-#shop(user)
+chooseroom(user, bot1)
+print("You got 40 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 40
+healthpotion(user)
+shop(user)
+chooseroom(user, bot2)
+print("You got 50 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 50
+healthpotion(user)
+shop(user)
+chooseroom(user, bot3)
+print("You got 60 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 60
+healthpotion(user)
+shop(user)
+chooseroom(user, bot4)
+print("You got 70 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 70
+healthpotion(user)
+shop(user)
+chooseroom(user, bot5)
+print("You got 80 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 80
+healthpotion(user)
+shop(user)
+chooseroom(user, bot6)
+print("You got 100 gold for winning that encounter! Congrats! You'll die eventually!")
+user.gold = user.gold + 100
+healthpotion(user)
+shop(user)
 chooseroom(user, bot7)
 print("You got 120 gold for winning that encounter! Congrats! You'll die eventually!")
 user.gold = user.gold + 120
